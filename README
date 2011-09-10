@@ -1,0 +1,8 @@
+Different makefiles for different languages will be added here
+
+The general idea is that:
+1. they should be somewhat generic, requiring as little maintenance as possible
+   (adding source files etc)
+2. they are simple in nature
+   (small project folders with src/ and obj/)
+   (feel free to make them more complex tho :P)
