@@ -1,14 +1,22 @@
-CC := gcc					#compiler
-SRC := $(wildcard src/*.c)			#source files
-OBJ := $(patsubst src/%.c,obj/%.o,$(SRC))	#object files
-LFLAGS :=					#linking flags
-CFLAGS :=					#compiling flags
+#compiles all the source files! (from src/ to obj/)
+#links all the objects! (into program)
+CC := gcc
+SRC := $(wildcard src/*.c)
+OBJ := $(patsubst src/%.c,obj/%.o,$(SRC))
+LFLAGS :=
+CFLAGS := -Wall -I include
 
-main.exe: $(OBJ)
-	$(CC) $(LFLAGS) -o $@ $<
+all: program
 
-obj/%.o: src/%.c
-	$(CC) $(CFLAGS) -c -o $@ $<
+debug : CFLAGS += -DDEBUG -g
+debug : program
 
-clean:
-	rm $(OBJ)
+program : $(OBJ)
+	$(CC) $(LFLAGS) -o $@ $^
+
+obj/%.o : src/%.c
+	$(CC) $(CFLAGS) -o $@ -c $<
+
+.PHONY : clean
+clean :
+	rm program $(OBJ)

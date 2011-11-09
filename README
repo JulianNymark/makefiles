@@ -1,4 +1,4 @@
-Different makefiles for different languages will be added here
+Different makefiles will be added here.
 
 The general idea is that:
 1. they should be somewhat generic, requiring as little maintenance as possible

@@ -2,12 +2,12 @@ This Makefile is meant for a project tree looking like this:
 ----------------------
      project/
 	Makefile
-	main.exe
+	program (linked executable)
 	src/
 	obj/
+	include/
 ----------------------
 
 1. All source files in src/ are compiled to object files in obj/
 2. The object files are then linked to a main executable in the project root
-
-*. It currently only looks for *.c in src/ (headers can be added with "-I <dir>" in CFLAGS)
+3. Header files are placed in include/
