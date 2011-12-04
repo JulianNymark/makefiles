@@ -1,0 +1,16 @@
+Makefile for c program's written for the msp430 G2231
+
+- 2 KB of flash (perm-storage)
+- 128 B of SRAM (faster-storage)
+
+for space conservation:
+
+use -Os (O stands for optimization, s for space!)
+
+sectors in flash can be erased, but contain several bytes
+look into "info-mem" for smaller sectors of flash (if you 
+cannot just free a large sector)
+
+secondly, write better c.
+
+thirdly, look into assembler code if c fails.

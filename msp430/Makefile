@@ -1,21 +1,22 @@
 #compiles all the source files! (from src/ to obj/)
 #links all the objects! (into program)
-CC := gcc
+CC := msp430-gcc
 SRC := $(wildcard src/*.c)
 OBJ := $(patsubst src/%.c,obj/%.o,$(SRC))
-LFLAGS :=
-CFLAGS := -Wall -I include
+LFLAGS := -mmcu=msp430x2012
+CFLAGS := -Os -Wall -mmcu=msp430x2012
+
 
 all: program
 
 debug : CFLAGS += -DDEBUG -g
 debug : program
 
-program : $(OBJ)
-	$(CC) $(LFLAGS) -o $@ $^
-
 obj/%.o : src/%.c
 	$(CC) $(CFLAGS) -o $@ -c $<
+
+program : $(OBJ)
+	$(CC) $(LFLAGS) -o $@ $^
 
 .PHONY : clean
 clean :
