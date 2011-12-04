@@ -1,7 +1,8 @@
-Makefile for c program's written for the msp430 G2231
+Makefile for c program's written for the msp430
 
+the msp430G2231:
 - 2 KB of flash (perm-storage)
-- 128 B of SRAM (faster-storage)
+- 128 B of SRAM
 
 for space conservation:
 
