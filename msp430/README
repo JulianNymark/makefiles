@@ -14,3 +14,31 @@ cannot just free a large sector)
 secondly, write better c.
 
 thirdly, look into assembler code if c fails.
+
+requirements:
+
+mspgcc-binutils (utils)
+mspgcc-430-libs (library)
+mppgcc-430mcu (headers)
+mspgcc-mspgcc (gcc)
+mspdebug (debugger & easy connection to dev-board)
+
+quick how-to:
+
+1) get req's above (yaourt, pacman ... or other)
+2) compile your file using Makefile
+3) look at where dev-board is connected using:
+   sudo mspdebug --usb-list
+4) connect using:
+   sudo mspdebug -U "bus:dev" rf2500
+5) Erase the device and flash the data contained in a binary file
+   (mspdebug) prog program
+6) run program if not already running
+   (mspdebug) run
+7) you are done!
+
+from here you can debug using the two led's on the dev-board! :D
+
+(or if you want to use gdb and step through stuff, look into 
+mspdebug's gdb command and external debugging with gdb (port 2000
+on localhost is the default for mspdebug))
