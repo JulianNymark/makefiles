@@ -1,0 +1,14 @@
+This Makefile is meant for a project tree looking like this:
+----------------------
+     project/
+	Makefile
+	program (linked executable)
+	src/
+	obj/
+	include/
+----------------------
+
+1. All source files in src/ are compiled to object files in obj/
+2. The object files are then linked to a main executable in the project root
+3. Header files are placed in include/
+4. This cpp makefile assumes usage of SDL (a commonly used multimedia library)
