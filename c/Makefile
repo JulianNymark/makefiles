@@ -1,6 +1,7 @@
 #compiles all the source files! (from src/ to obj/)
 #links all the objects! (into program)
 CC := gcc
+LD := gcc
 SRC := $(wildcard src/*.c)
 OBJ := $(patsubst src/%.c,obj/%.o,$(SRC))
 LFLAGS :=
@@ -12,7 +13,7 @@ debug : CFLAGS += -DDEBUG -g
 debug : program
 
 program : $(OBJ)
-	$(CC) $(LFLAGS) -o $@ $^
+	$(LD) $(LFLAGS) -o $@ $^
 
 obj/%.o : src/%.c
 	$(CC) $(CFLAGS) -o $@ -c $<
